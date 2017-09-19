@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "header".
  *
@@ -45,12 +43,12 @@ class Header extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idheader' => 'Idheader',
-            'name' => 'Name',
-            'code_amtz' => 'Code Amtz',
-            'fax' => 'Fax',
+            'idheader' => '№',
+            'name' => 'Название',
+            'code_amtz' => 'Код AMTZ',
+            'fax' => 'Факс',
             'email' => 'Email',
-            'adress' => 'Adress',
+            'adress' => 'Адрес',
         ];
     }
 

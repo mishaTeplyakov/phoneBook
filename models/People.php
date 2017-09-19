@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use Yii;
 
 /**
  * This is the model class for table "people".
@@ -35,7 +34,7 @@ class People extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['categoriya', 'posada', 'phone', 'inside_phone', 'mts_phone', 'lugakom_phone', 'division_iddivision'], 'required'],
+            [['categoriya', 'posada','fio', 'phone', 'inside_phone', 'division_iddivision'], 'required'],
             [['division_iddivision'], 'integer'],
             [['categoriya'], 'string', 'max' => 100],
             [['posada', 'fio'], 'string', 'max' => 255],
@@ -52,15 +51,15 @@ class People extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idpeople' => 'Idpeople',
-            'categoriya' => 'Categoriya',
-            'posada' => 'Posada',
-            'fio' => 'Fio',
-            'phone' => 'Phone',
-            'inside_phone' => 'Inside Phone',
-            'mts_phone' => 'Mts Phone',
-            'lugakom_phone' => 'Lugakom Phone',
-            'division_iddivision' => 'Division Iddivision',
+            'idpeople' => 'Id',
+            'categoriya' => 'Категория',
+            'posada' => 'Должность',
+            'fio' => 'ФИО',
+            'phone' => 'Телефон',
+            'inside_phone' => 'Внутренний телефон',
+            'mts_phone' => 'МТС',
+            'lugakom_phone' => 'Лугаком',
+            'division_iddivision' => 'Относиться к отделу',
         ];
     }
 

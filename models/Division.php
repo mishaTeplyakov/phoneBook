@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use Yii;
 
 /**
  * This is the model class for table "division".
@@ -30,7 +29,7 @@ class Division extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['header_idheader'], 'required'],
+            //[['header_idheader'], 'required'],
             [['header_idheader'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['header_idheader'], 'exist', 'skipOnError' => true, 'targetClass' => Header::className(), 'targetAttribute' => ['header_idheader' => 'idheader']],
@@ -43,9 +42,9 @@ class Division extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'iddivision' => 'Iddivision',
-            'name' => 'Name',
-            'header_idheader' => 'Header Idheader',
+            'iddivision' => '№ отдела',
+            'name' => 'Название отдела',
+            'header_idheader' => 'Относиться к объекту почтовой связи',
         ];
     }
 
@@ -64,4 +63,6 @@ class Division extends \yii\db\ActiveRecord
     {
         return $this->hasMany(People::className(), ['division_iddivision' => 'iddivision']);
     }
+
+
 }
