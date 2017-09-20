@@ -23,17 +23,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             //'idpeople',
             'categoriya',
             'posada',
             'fio',
             'phone',
-             'inside_phone',
-             //'mts_phone',
+            'inside_phone',
+            'mts_phone',
              //'lugakom_phone',
-             'division_iddivision',
-
+            'division_iddivision',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

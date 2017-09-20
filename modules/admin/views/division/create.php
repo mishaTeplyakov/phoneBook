@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Division */
 
-$this->title = 'Create Division';
-$this->params['breadcrumbs'][] = ['label' => 'Divisions', 'url' => ['index']];
+$this->title = 'Создание Отдела';
+$this->params['breadcrumbs'][] = ['label' => 'Отделы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="division-create">

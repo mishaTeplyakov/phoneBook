@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Header */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Headers', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Объекты', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="header-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->idheader], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->idheader], [
+        <?= Html::a('Обновить', ['update', 'id' => $model->idheader], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->idheader], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
                 'method' => 'post',
             ],
         ]) ?>

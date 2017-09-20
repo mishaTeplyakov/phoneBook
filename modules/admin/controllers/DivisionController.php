@@ -64,10 +64,7 @@ class DivisionController extends Controller
      */
     public function actionCreate()
     {
-
         $model = new Division();
-
-
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'iddivision' => $model->iddivision, 'header_idheader' => $model->header_idheader]);

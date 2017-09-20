@@ -2,6 +2,9 @@
 
 namespace app\models;
 
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
+
 
 /**
  * This is the model class for table "user".
@@ -13,8 +16,7 @@ namespace app\models;
  * @property integer $isAdmin
  * @property string $photo
  */
-class User extends \yii\db\ActiveRecord
-{
+class User extends ActiveRecord implements IdentityInterface{
     /**
      * @inheritdoc
      */
@@ -47,5 +49,27 @@ class User extends \yii\db\ActiveRecord
             'isAdmin' => 'Is Admin',
             'photo' => 'Photo',
         ];
+    }
+
+    public static function findIdentity($id)
+    {
+        return User::findOne($id);
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function validatePassword($password)
+    {
+        return ($this->password == $password) ? true : false;
+    }
+
+
+    public static function findIdentityByAccessToken($token, $type = null){}
+    public function getAuthKey(){}
+    public function validateAuthKey($authKey){}
+
+    public static function findByUsername($username){
+        return User::find()->where(['name'=>$username])->one();
     }
 }

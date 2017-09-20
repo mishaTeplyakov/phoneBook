@@ -3,15 +3,20 @@
 namespace app\controllers;
 
 use app\models\Header;
+use app\models\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
 
 class SiteController extends Controller
 {
+
+
+    public function beforeAction($action){
+    $this->enableCsrfValidation = false;
+    return parent :: beforeAction($action);
+    }
     /**
      * @inheritdoc
      */
@@ -67,20 +72,21 @@ class SiteController extends Controller
         return $this->render('index', compact('headers'));
     }
 
-    /**
-     * Login action
-     * @return Response|string
-     */
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
+            echo 'Пользователь Гость';
             return $this->goHome();
         }
+
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
-        return $this->render('login', [
+
+        return $this->render('\login', [
             'model' => $model
         ]);
     }
@@ -88,16 +94,12 @@ class SiteController extends Controller
     /**
      * Logout action.
      *
-     * @return Response
+     * @return string
      */
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    public function actionSearch(){
-
     }
 }

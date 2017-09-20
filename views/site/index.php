@@ -1,9 +1,6 @@
 <?php
-/* @var $this yii\web\View */
-
 $this->title = 'ТЕЛЕФОННЫЙ СПРАВОЧНИК';
 ?>
-
     <?php foreach ($headers as $header):?>
         <div class="page-header">
             <h2><?=$header->name?></h2>
@@ -14,7 +11,6 @@ $this->title = 'ТЕЛЕФОННЫЙ СПРАВОЧНИК';
         </div>
 
         <head>
-
             <?php foreach ($header->divisions as $division):?>
                 <caption>
                     <h4><i><?=$division->name?></i></h4>

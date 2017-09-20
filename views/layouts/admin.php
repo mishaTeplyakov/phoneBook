@@ -38,8 +38,7 @@ AppAsset::register($this);
     <?php
 
     NavBar::begin([
-        'brandLabel' => 'Админ панель - ТЕЛЕФОННЫЙ СПРАВОЧНИК',
-        'brandUrl' => 'admin/default/index',
+        //'label' => 'Админ панель - ТЕЛЕФОННЫЙ СПРАВОЧНИК',
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -53,7 +52,6 @@ AppAsset::register($this);
             ['label' => 'Список сотрудников', 'url' => ['/admin/people/index']]
         ],
     ]);
-
     NavBar::end();
 
     ?>

@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Header */
 
-$this->title = 'Create Header';
-$this->params['breadcrumbs'][] = ['label' => 'Headers', 'url' => ['index']];
+$this->title = 'Создание объекта связи';
+$this->params['breadcrumbs'][] = ['label' => 'Объекты', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="header-create">
