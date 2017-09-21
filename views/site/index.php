@@ -1,16 +1,37 @@
 <?php
 $this->title = 'ТЕЛЕФОННЫЙ СПРАВОЧНИК';
 ?>
+<ul class="nav nav-tabs">
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="">Выпадающий список<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <!-- links -->
+    </ul>
+</li>
+</ul>
+    <div class="row">
     <?php foreach ($headers as $header):?>
-        <div class="page-header">
-            <h2><?=$header->name?></h2>
-            <p><b><i>Код АМТЗ:</i></b> <?=$header->code_amtz?></p>
-            <p><b><i>Факс:</i></b> <?=$header->fax?></p>
-            <p><b><i>E-mail:</i></b> <?=$header->email?></p>
-            <p><b><i>Адрес:</i></b> <?=$header->adress?></p>
+        <div class="col-lg-6">
+            <div class="page-header">
+                <h2><?=$header->name?></h2>
+                <p><b><i>Код АМТЗ:</i></b> <?=$header->code_amtz?></p>
+                <p><b><i>Факс:</i></b> <?=$header->fax?></p>
+                <p><b><i>E-mail:</i></b> <?=$header->email?></p>
+                <p><b><i>Адрес:</i></b> <?=$header->adress?></p>
+            </div>
         </div>
 
+        <div class="col-lg-6  ">
+
+        </div>
+    </div>
+
         <head>
+            <div class="input-group col-md-4 col-lg-push-8 ">
+                <form action="<?= \yii\helpers\Url::to(['site/search'])?>" method="get" role="search">
+                    <input id="search-field" name="q" type="text" class="form-control" placeholder="Искать...">
+                </form>
+            </div>
             <?php foreach ($header->divisions as $division):?>
                 <caption>
                     <h4><i><?=$division->name?></i></h4>

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Header;
 use app\models\LoginForm;
+use app\models\People;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -102,4 +103,16 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+
+    public function actionSearch(){
+        $q = trim(Yii::$app->request->get('q'));
+        $query = People::find()->where(['like','fio',$q])->all();
+        //$peoples =
+            People::find()
+            ->select(['categoriya','posada','fio','phone','inside_phone','mts_phone','lugakom_phone'])
+            ->where(['like','fio',$q])->all();
+        return $this->render('search',compact('query'));
+    }
+
 }
