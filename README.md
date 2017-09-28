@@ -1,12 +1,9 @@
 Телефонный справочник на Yii2
 ============================
 ![Иллюстрация к проекту](https://github.com/mishaTeplyakov/phoneBook/raw/forgit/image/phonebook.jpg)
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
+Телефонный справочник на Yii2 созданный при помощи basic шаблона, сайт имеет frontend и backend с скрытой админкой, в кторой вы можете изменять данные своей организации, отделы и добавлять новых сотрудников.Так же на frontend стороне присутствует поиск по рабочим.
+![Иллюстрация к проекту](https://github.com/mishaTeplyakov/phoneBook/raw/forgit/image/admin.jpg)
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
 [![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
