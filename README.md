@@ -1,4 +1,4 @@
-Yii 2 Basic Project Template
+Телефонный справочник на Yii2
 ============================
 
 Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
