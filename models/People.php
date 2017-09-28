@@ -34,13 +34,14 @@ class People extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['categoriya', 'posada','fio', 'phone', 'inside_phone', 'division_iddivision'], 'required'],
+            [['categoriya', 'posada','fio', 'phone', 'inside_phone', 'division_iddivision', 'header_idheader'], 'required'],
             [['division_iddivision'], 'integer'],
             [['categoriya'], 'string', 'max' => 100],
             [['posada', 'fio'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 15],
             [['inside_phone'], 'string', 'max' => 6],
             [['mts_phone', 'lugakom_phone'], 'string', 'max' => 20],
+            [['header_idheader'], 'exist', 'skipOnError' => true, 'targetClass' => Header::className(), 'targetAttribute' => ['header_idheader' => 'idheader']],
             [['division_iddivision'], 'exist', 'skipOnError' => true, 'targetClass' => Division::className(), 'targetAttribute' => ['division_iddivision' => 'iddivision']],
         ];
     }
@@ -59,6 +60,7 @@ class People extends \yii\db\ActiveRecord
             'inside_phone' => 'Внутренний телефон',
             'mts_phone' => 'МТС',
             'lugakom_phone' => 'Лугаком',
+            'header_idheader' => 'Относиться к объекту связи',
             'division_iddivision' => 'Относиться к отделу',
         ];
     }
@@ -66,8 +68,12 @@ class People extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDivisionIddivision()
-    {
+    public function getDivisionIddivision(){
         return $this->hasOne(Division::className(), ['iddivision' => 'division_iddivision']);
     }
+
+    public function getHeaderidheader(){
+        return $this->hasOne(Header::className(),['idheader' => 'header_idheader']);
+    }
+
 }

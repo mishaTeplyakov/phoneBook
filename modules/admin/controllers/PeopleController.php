@@ -71,6 +71,7 @@ class PeopleController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'arrDivision' => [],
             ]);
         }
     }

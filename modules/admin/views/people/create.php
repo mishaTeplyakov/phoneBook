@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\People */
 
 $this->title = 'Добавить сотрудника';
-$this->params['breadcrumbs'][] = ['label' => 'Сотрудники', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Peoples', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="people-create">
@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'arrDivision' => $arrDivision,
     ]) ?>
 
 </div>

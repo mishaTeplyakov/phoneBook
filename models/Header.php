@@ -59,4 +59,8 @@ class Header extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Division::className(), ['header_idheader' => 'idheader']);
     }
+
+    public function getPeople(){
+        return $this->hasMany(Header::className(),['header_idheader' =>'idheader']);
+    }
 }

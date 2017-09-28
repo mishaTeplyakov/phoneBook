@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\People */
 
 $this->title = $model->idpeople;
-$this->params['breadcrumbs'][] = ['label' => 'Сотрудники', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Peoples', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="people-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Обновить', ['update', 'idpeople' => $model->idpeople, 'division_iddivision' => $model->division_iddivision], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Удалить', ['delete', 'idpeople' => $model->idpeople, 'division_iddivision' => $model->division_iddivision], [
+        <?= Html::a('Update', ['update', 'idpeople' => $model->idpeople, 'division_iddivision' => $model->division_iddivision], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'idpeople' => $model->idpeople, 'division_iddivision' => $model->division_iddivision], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'inside_phone',
             'mts_phone',
             'lugakom_phone',
+            'header_idheader',
             'division_iddivision',
         ],
     ]) ?>

@@ -1,9 +1,10 @@
 <?php
 
-use yii\helpers\Html;
 use app\models\Division;
-use yii\widgets\ActiveForm;
+use app\models\Header;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\People */
@@ -12,7 +13,9 @@ use yii\helpers\ArrayHelper;
 
 <div class="people-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+
+    ]); ?>
 
     <?= $form->field($model, 'categoriya')->textInput(['maxlength' => true]) ?>
 
@@ -28,7 +31,22 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'lugakom_phone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'division_iddivision')->dropDownList(ArrayHelper::map(Division::find()->all(),'iddivision', 'name')) ?>
+    <?= $form->field($model, 'header_idheader')
+        ->dropDownList(ArrayHelper::map(Header::find()->all(),'idheader','name'),
+            [
+                'prompt' => 'Выбрать объект почтовой связи...',
+                'onchange' => '
+                    $.post("'.Yii::$app->urlManager->createUrl('/admin/division/lists?id=').'"+$(this).val(),function(data){
+                        $("select#people-division_iddivision").html(data);
+                        });',
+            ])?>
+
+    <?= $form->field($model, 'division_iddivision')
+        ->dropDownList(ArrayHelper::map(Division::find()->all(),'iddivision','name'),
+            [
+                'prompt' => 'Выбрать отдел...',
+            ]
+        )?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

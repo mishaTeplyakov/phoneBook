@@ -6,6 +6,7 @@ use app\models\Header;
 use app\models\LoginForm;
 use app\models\People;
 use Yii;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -69,8 +70,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $headers = Header::find('name')->all();
-        return $this->render('index', compact('headers'));
+        $header = Header::find('name');
+
+        $countHeader = clone $header;
+
+        $pages = new Pagination([
+            'totalCount' => $countHeader->count(),
+            'pageSize' => 1
+        ]);
+        $headers = $header->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        return $this->render('index', compact('headers','pages'));
     }
 
 
@@ -108,11 +120,12 @@ class SiteController extends Controller
     public function actionSearch(){
         $q = trim(Yii::$app->request->get('q'));
         $query = People::find()->where(['like','fio',$q])->all();
-        //$peoples =
-            People::find()
-            ->select(['categoriya','posada','fio','phone','inside_phone','mts_phone','lugakom_phone'])
-            ->where(['like','fio',$q])->all();
+
         return $this->render('search',compact('query'));
     }
+
+
+
+
 
 }

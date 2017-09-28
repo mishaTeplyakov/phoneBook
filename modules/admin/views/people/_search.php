@@ -31,6 +31,8 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'lugakom_phone') ?>
 
+    <?php // echo $form->field($model, 'header_idheader') ?>
+
     <?php // echo $form->field($model, 'division_iddivision') ?>
 
     <div class="form-group">

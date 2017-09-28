@@ -1,14 +1,11 @@
 <?php
 $this->title = 'ТЕЛЕФОННЫЙ СПРАВОЧНИК';
 ?>
-<ul class="nav nav-tabs">
-<li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="">Выпадающий список<b class="caret"></b></a>
-    <ul class="dropdown-menu">
-        <!-- links -->
-    </ul>
-</li>
-</ul>
+<?php echo \yii\widgets\LinkPager::widget(
+    [
+        'pagination' =>$pages,
+    ]
+);?>
     <div class="row">
     <?php foreach ($headers as $header):?>
         <div class="col-lg-6">
@@ -73,4 +70,5 @@ $this->title = 'ТЕЛЕФОННЫЙ СПРАВОЧНИК';
             <?php endforeach;?>
         </head>
     <?php endforeach;?>
+
 

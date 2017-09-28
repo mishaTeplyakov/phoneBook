@@ -16,7 +16,7 @@ class PeopleSearch extends People
     public function rules()
     {
         return [
-            [['idpeople', 'division_iddivision'], 'integer'],
+            [['idpeople', 'header_idheader', 'division_iddivision'], 'integer'],
             [['categoriya', 'posada', 'fio', 'phone', 'inside_phone', 'mts_phone', 'lugakom_phone'], 'safe'],
         ];
     }
@@ -58,6 +58,7 @@ class PeopleSearch extends People
         // grid filtering conditions
         $query->andFilterWhere([
             'idpeople' => $this->idpeople,
+            'header_idheader' => $this->header_idheader,
             'division_iddivision' => $this->division_iddivision,
         ]);
 

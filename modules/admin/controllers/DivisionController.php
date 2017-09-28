@@ -125,4 +125,22 @@ class DivisionController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionLists($id){
+        $countDivision = Division::find()
+            ->where(['header_idheader' => $id])
+            ->count();
+        $divisions = Division::find()
+            ->where(['header_idheader' => $id])
+            ->all();
+        if($countDivision > 0){
+            echo "<option>Выбрать отдел...</option>";
+            foreach ($divisions as $header){
+                echo "<option value='".$header->iddivision."'>".$header->name."</option>";
+            }
+        } else{
+            echo "<option> - </option>";
+        }
+    }
 }
